@@ -1,0 +1,31 @@
+<ion-menu [content]="nav">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>เมนู</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item icon-left (click)="onLoad(signinPage)" *ngIf="!isAuthenticated">
+        <ion-icon name="log-in"></ion-icon>
+        เข้าสู่ระบบ
+      </button>
+      <button ion-item icon-left (click)="onLoad(mapPage)" *ngIf="isAuthenticated">
+        <ion-icon name="map"></ion-icon>
+        แผนที่
+      </button>
+      <button ion-item icon-left (click)="onLoad(rootPage)" *ngIf="isAuthenticated">
+        <ion-icon name="pin"></ion-icon>
+        ตำแหน่งปัจจุบัน
+      </button>
+      <button ion-item icon-left (click)="onLogout()" *ngIf="isAuthenticated">
+        <ion-icon name="log-out"></ion-icon>
+        ออกจากระบบ
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="mapPage" #nav></ion-nav>

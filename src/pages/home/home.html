@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ตำแหน่งปัจจุบัน</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-sliding *ngFor="let item of items | async" (click)="select()">
+    <ion-item>
+
+      <h3>MID : {{item.note.mid}}</h3>
+      <p>{{item.note.dueDate}}</p>
+      <p>ละติจูด : {{item.note.latitude}}</p>
+      <p>ลองติจูด : {{item.note.longitude}}</p>
+      <p>ยี่ห้อ : {{item.note.topic}}</p>
+      <ion-badge item-end color="danger">{{ item.note.topic }}</ion-badge>
+
+    </ion-item>
+    </ion-item-sliding>
+</ion-content>
